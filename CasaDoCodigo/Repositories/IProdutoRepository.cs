@@ -6,7 +6,7 @@ namespace CasaDoCodigo.Repositories
 {
     public interface IProdutoRepository
     {
-        void SaveProdutos(List<Livro> livros);
+        Task SaveProdutos(List<Livro> livros);
         Task<IList<Produto>> GetProdutos();
         Task<IList<Produto>> GetProdutos(string nome);
     }

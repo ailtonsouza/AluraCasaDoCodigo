@@ -33,10 +33,10 @@ namespace CasaDoCodigo.Repositories
                        
         }
 
-        public void SaveProdutos(List<Livro> livros)
+        public async Task SaveProdutos (List<Livro> livros)
         {
 
-            categoriaRepository.SalvarCategoria(livros);
+            await categoriaRepository.SalvarCategoria(livros);
 
             foreach (var livro in livros)
             {
@@ -47,7 +47,7 @@ namespace CasaDoCodigo.Repositories
                     dbSet.Add(new Produto(livro.Codigo, livro.Nome, livro.Preco, categoriaRepository.RetornaCategoria(livro.Categoria)));
                 }
             }
-            contexto.SaveChangesAsync();
+            await contexto.SaveChangesAsync();
         }
     }
 

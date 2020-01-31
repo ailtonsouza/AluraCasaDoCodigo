@@ -15,7 +15,7 @@ namespace CasaDoCodigo
       
 
         public DataService(ApplicationContext contexto,
-            IProdutoRepository produtoRepository, ICategoriaRepository CategoriaRepository)
+            IProdutoRepository produtoRepository)
         {
             this.contexto = contexto;
             this.produtoRepository = produtoRepository;
@@ -28,7 +28,7 @@ namespace CasaDoCodigo
 
             List<Livro> livros = await GetLivros();
 
-            produtoRepository.SaveProdutos(livros);
+            await produtoRepository.SaveProdutos(livros);
         }
 
         private static async Task<List<Livro>> GetLivros()
